@@ -5,15 +5,6 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 
-class ListView():
-    def as_view(self):
-        return self.get
-    def get(self, request):
-        model_list_name = self.model.__name__.lower() + '_list'
-        context = {model_list_name: self.model.objects.all()}
-
-        return render(request, self.template_name, context)
-
 class PollListView(ListView):
     model = Poll
     template_name = 'polling/list.html'
