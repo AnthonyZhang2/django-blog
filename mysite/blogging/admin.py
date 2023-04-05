@@ -16,16 +16,19 @@ class InlineModelAdmin(admin.TabularInline):
 
 
 class CategoryModelAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
-    inlines = [InlineModelAdmin, ]
-    exclude = ('posts',)
+    list_display = ("name", "description")
+    inlines = [
+        InlineModelAdmin,
+    ]
+    exclude = ("posts",)
 
 
 class PostModelAdmin(admin.ModelAdmin):
-    list_display = ('title', 'text', 'author', 'published_date')
-    inlines = [InlineModelAdmin, ]
+    list_display = ("title", "text", "author", "published_date")
+    inlines = [
+        InlineModelAdmin,
+    ]
 
 
 admin.site.register(Category, CategoryModelAdmin)
 admin.site.register(Post, PostModelAdmin)
-
